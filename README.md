@@ -1,6 +1,5 @@
 # textX: Intelligent Document Scanning & AI Analysis System
 
-![textX Icon](https://deveshrx.github.io/Text-Master-OCR/pics/Play-Store-GraphicsSS-1.png)
 
 ## 📝 Project Overview
 **textX** is an advanced Android application designed to bridge the gap between physical documents and digital intelligence. Unlike traditional OCR scanners that only extract text, this application utilizes State-of-the-Art Artificial Intelligence (**Llama 3.3 via Groq**) to summarize content and extract meaningful keywords automatically.
@@ -41,9 +40,6 @@ The application follows a modular architecture:
 3.  **API Key Configuration**: Open `AIManager.java` and ensure your Groq Cloud API Key is present in the `groqApiKey` variable.
 4.  **Build & Run**: Deploy to a physical Android device or an emulator with Camera support.
 
-## 📸 Screenshots
-![Screenshots](https://deveshrx.github.io/Text-Master-OCR/pics/Play-Store-GraphicsSS-6.png)
-![Screenshots](https://deveshrx.github.io/Text-Master-OCR/pics/Play-Store-GraphicsSS-7.png)
 
 ## 🔮 Future Enhancements
 *   **Search/Filters**: Intelligent keyword searching within the history.
