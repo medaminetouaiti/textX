@@ -1,15 +1,23 @@
 <resources>
-    <string name="app_name" translatable="false">Text Master OCR</string>
+    <string name="app_name" translatable="false">textX</string>
     <string name="PLAY_STORE_URL" translatable="false">https://play.google.com/store/apps/details?id=devesh.app.ocr</string>
     <string name="GALAXY_STORE_URL" translatable="false">https://galaxystore.samsung.com/detail/devesh.app.ocr</string>
 
+    <string name="app_version_name">1.0</string>
+    <string name="app_version_code">1</string>
 
+    <!-- AdMob App ID - Replace with your own ID -->
+    <string name="AdMob_App_Id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
+
+    <!-- AdMob Unit IDs (Test IDs) -->
+    <string name="AdMob_Banner_Id1" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="AdMob_Int_Id1" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="AdMob_RewardedAds_Id1" translatable="false">ca-app-pub-3940256099942544/5224354917</string>
+    <string name="AdMob_NativeAd1" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
 
     <string name="Pref_isAppReviewed">PrefisAppReviewed</string>
     <string name="Pref_isMultiline">onelinetext</string>
     <string name="Pref_isSubscribed">issub</string>
-
-
 
     <!--SMS Drive-->
     <string name="MoreApps_SMS_Drive">SMS Drive</string>
@@ -19,38 +27,36 @@
     <!--Indra-->
     <string name="MoreApps_Indra">Indra Private Video Chat</string>
     <string name="MoreApps_Indra_desc">Private Conversations with your Friends &amp; Family.</string>
-    <string name="MoreApps_Indra_url">https://play.google.com/store/apps/details?id=devesh.ephrine.indra</string>
+    <string name="MoreApps_Indra_url">https://play.google.com/store/apps/details?id=devesh.app.ocr</string>
 
     <!--Pharma Hub-->
     <string name="MoreApps_PharmaHub">Pharma Hub for Students</string>
     <string name="MoreApps_PharmaHub_desc">EdTech Platform for Pharmacy &amp; Medical Study</string>
-    <string name="MoreApps_PharmaHub_url">https://play.google.com/store/apps/details?id=devesh.b.pharm.guide.mu</string>
+    <string name="MoreApps_PharmaHub_url">https://play.google.com/store/apps/details?id=devesh.app.ocr</string>
 
     <!--Jinx-->
     <string name="MoreApps_Jinx">Jinx</string>
     <string name="MoreApps_Jinx_desc">Self Diagnosis tool for Depression</string>
-    <string name="MoreApps_Jinx_url">https://play.google.com/store/apps/details?id=devesh.ephrine.depression.self.diagnosis</string>
+    <string name="MoreApps_Jinx_url">https://play.google.com/store/apps/details?id=devesh.app.ocr</string>
 
     <!--Muzilla-->
     <string name="MoreApps_Muzilla">Muzilla Simple Music Player</string>
     <string name="MoreApps_Muzilla_desc">Simple Music Player for Love of Music</string>
-    <string name="MoreApps_Muzilla_url">https://play.google.com/store/apps/details?id=devesh.app.music</string>
-
-
+    <string name="MoreApps_Muzilla_url">https://play.google.com/store/apps/details?id=devesh.app.ocr</string>
 
     <!--qrlite-->
     <string name="MoreApps_QRLite">QR Lite</string>
     <string name="MoreApps_QRLite_desc">Lightweight QR Code Generator &amp; Scanner</string>
-    <string name="MoreApps_QRLite_url">https://play.google.com/store/apps/details?id=devesh.ephrine.qr.code</string>
+    <string name="MoreApps_QRLite_url">https://play.google.com/store/apps/details?id=devesh.app.ocr</string>
 
     <!--selfhypno-->
     <string name="MoreApps_SHT">Self Hypnosis Therapy</string>
     <string name="MoreApps_SHT_desc">Teach you basic technique of self hypnosis</string>
-    <string name="MoreApps_SHT_url">https://play.google.com/store/apps/details?id=devesh.ephrine.selfhypnosis</string>
+    <string name="MoreApps_SHT_url">https://play.google.com/store/apps/details?id=devesh.app.ocr</string>
 
     <!--Virtual LSD-->
     <string name="MoreApps_VirtualLSD">Virtual LSD Drug</string>
     <string name="MoreApps_VirtualLSD_desc">Safest way to experience Hallucination effect like LSD by complex optical illusions</string>
-    <string name="MoreApps_VirtualLSD_url">https://play.google.com/store/apps/details?id=devesh.ephrine.virtuallsd</string>
+    <string name="MoreApps_VirtualLSD_url">https://play.google.com/store/apps/details?id=devesh.app.ocr</string>
 
 </resources>

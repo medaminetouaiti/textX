@@ -25,6 +25,15 @@ public class DatabaseTool {
     public void Add(ScanFile scanFile){
         userDao.insert(scanFile);
     }
+
+    public void update(ScanFile scanFile){
+        userDao.update(scanFile);
+    }
+
+    public ScanFile findByText(String text){
+        return userDao.findByText(text);
+    }
+
     public void clearHistory(){
         userDao.nukeTable();
     }

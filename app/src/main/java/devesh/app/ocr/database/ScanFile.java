@@ -16,4 +16,9 @@ public class ScanFile {
     @ColumnInfo(name = "time")
     public long time;
 
+    @ColumnInfo(name = "summary")
+    public String summary;
+
+    @ColumnInfo(name = "keywords")
+    public String keywords;
 }

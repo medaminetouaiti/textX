@@ -1,14 +1,9 @@
 pluginManagement {
     repositories {
-        google {
-            content {
-                includeGroupByRegex("com\\.android.*")
-                includeGroupByRegex("com\\.google.*")
-                includeGroupByRegex("androidx.*")
-            }
-        }
+        google()
         mavenCentral()
         gradlePluginPortal()
+        maven("https://maven.pkg.jetbrains.space/public/p/kotlin/p/kotlin-plugin")
     }
 }
 dependencyResolutionManagement {
@@ -19,6 +14,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Text Master"
+rootProject.name = "textX"
 include(":app")
 include(":cropper")

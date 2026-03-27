@@ -1,46 +1,54 @@
-![Text Master Icon](https://deveshrx.github.io/Text-Master-OCR/pics/Play-Store-GraphicsSS-1.png)
+# textX: Intelligent Document Scanning & AI Analysis System
 
-# Text Master
+![textX Icon](https://deveshrx.github.io/Text-Master-OCR/pics/Play-Store-GraphicsSS-1.png)
 
-Text Master is Optical Character Recognition powered by Powerful Machine Learning & AI technology. 
-it automatically recognize the characters from an image/camera and Scan Printed Text to convert it into Digital Text with 99% accuracy.
+## 📝 Project Overview
+**textX** is an advanced Android application designed to bridge the gap between physical documents and digital intelligence. Unlike traditional OCR scanners that only extract text, this application utilizes State-of-the-Art Artificial Intelligence (**Llama 3.3 via Groq**) to summarize content and extract meaningful keywords automatically.
 
-## Features:
-✅ Scan text from images by using phone's camera.<br/>
-✅ Powered by Machine Learning & AI.<br/>
-✅ Supports Multiple Languages, 100+ languages supported.<br/>
-✅ Highly Accurate with 99% accuracy result.<br/>
-✅ Share scanned text with clipboard, friends, messengers or other app.<br/>
+This project demonstrates proficiency in Android development, Cloud API integration, and local data persistence.
 
-## Download 
-[![download](https://deveshrx.github.io/Text-Master-OCR/pics/google-play-badge.png)](https://play.google.com/store/apps/details?id=devesh.app.ocr)
-[![download](https://deveshrx.github.io/Text-Master-OCR/pics/amazon_app_store.png)](https://www.amazon.com/gp/product/B0BB3BJ75K)
+## ✨ Key Features
+*   **High-Accuracy OCR**: Utilizes Google ML Kit to recognize text from images with up to 99% accuracy.
+*   **AI Intelligent Summarization**: Automatically condenses long scanned documents into two concise sentences using the `llama-3.3-70b-versatile` model via Groq.
+*   **Automated Tagging**: Extracts relevant keywords from the text to assist in document categorization.
+*   **Local Persistence (History)**: Saves all scans, summaries, and keywords locally using the Room Database Library (SQLite abstraction).
+*   **Real-time Processing**: Implements multi-threading (Executors) to ensure a smooth, non-blocking user interface during AI analysis.
+*   **History Management**: A dedicated dashboard to view, delete, and re-summarize previous scans.
 
+## 🛠 Tech Stack
+*   **Language**: Java
+*   **Minimum SDK**: Android 26 (Oreo)
+*   **OCR Engine**: Google ML Kit (Vision API)
+*   **AI Backend**: Groq Cloud API (Inference Engine)
+*   **Model**: Meta Llama 3.3 (70B)
+*   **Networking**: OkHttp 3 / JSON Parsing
+*   **Database**: Android Room Persistence Library
+*   **UI Components**: RecyclerView, CardView, Material Design 3, CameraX
 
-## Screenshots
+## 🏗 System Architecture
+The application follows a modular architecture:
+1.  **UI Layer**: Activities handle user interaction (Camera capture, History list, Results).
+2.  **Recognition Layer**: Google ML Kit processes the bitmap from the camera to extract raw strings.
+3.  **Intelligence Layer (`AIManager.java`)**: The extracted text is sent via a secure REST API to the Groq Cloud, where the Llama model performs natural language processing.
+4.  **Data Layer (RoomDB)**: Results are stored in a local SQLite database for offline access.
 
+## 🚀 Installation & Setup
+1.  **Clone the Repository**:
+    ```bash
+    git clone https://github.com/deveshrx/Text-Master-OCR.git
+    ```
+2.  **Open in Android Studio**: Ensure you have Android Studio Ladybug or newer.
+3.  **API Key Configuration**: Open `AIManager.java` and ensure your Groq Cloud API Key is present in the `groqApiKey` variable.
+4.  **Build & Run**: Deploy to a physical Android device or an emulator with Camera support.
+
+## 📸 Screenshots
 ![Screenshots](https://deveshrx.github.io/Text-Master-OCR/pics/Play-Store-GraphicsSS-6.png)
 ![Screenshots](https://deveshrx.github.io/Text-Master-OCR/pics/Play-Store-GraphicsSS-7.png)
 
-![Screenshots](https://deveshrx.github.io/Text-Master-OCR/pics/Play-Store-GraphicsSS-2.png)
-![Screenshots](https://deveshrx.github.io/Text-Master-OCR/pics/Play-Store-GraphicsSS-3.png)
-![Screenshots](https://deveshrx.github.io/Text-Master-OCR/pics/Play-Store-GraphicsSS-4.png)
-![Screenshots](https://deveshrx.github.io/Text-Master-OCR/pics/Play-Store-GraphicsSS-5.png)
-![Screenshots](https://deveshrx.github.io/Text-Master-OCR/pics/Play-Store-GraphicsSS-1.png)
+## 🔮 Future Enhancements
+*   **Search/Filters**: Intelligent keyword searching within the history.
+*   **Cloud Sync**: Firebase Authentication and Firestore synchronization for cross-device access.
+*   **Export Options**: One-tap export of summaries to PDF and .docx files.
 
------
-## Build Instructions
-
-1) Step Android Development Environment & Install Android Studio [https://developer.android.com/guide](https://developer.android.com/guide)
-
-2) Rename file `local.properties.sample` to `local.properties`, located in the project root directory. Open the file & Add your api keys in it.
-if `local.properties` file is already exists, then add your own api keys into it 
-
-3) Download `google-services.json` file from Your [Firebase Console](https://console.firebase.google.com/). Learn More at [https://firebase.google.com/docs/android/setup](https://firebase.google.com/docs/android/setup)
-
-4) Copy-Paste `google-services.json` file into `/app` folder.
-
-5) Now open the project in Android Studio & Debug :) .
-
-
-
+## 📜 License
+This project is developed for educational purposes and is available under the MIT License.

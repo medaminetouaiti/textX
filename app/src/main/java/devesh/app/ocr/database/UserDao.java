@@ -4,31 +4,26 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
 @Dao
-interface UserDao {
+public interface UserDao {
     @Query("SELECT * FROM scanfile ORDER BY time desc")
     List<ScanFile> getAll();
 
-/*
-    @Query("SELECT * FROM ScanFile WHERE uid IN (:ScanFileIds)")
-    List<ScanFile> loadAllByIds(int[] ScanFileIds);
-
-    @Query("SELECT * FROM ScanFile WHERE first_name LIKE :first AND " +
-            "last_name LIKE :last LIMIT 1")
-    ScanFile findByName(String first, String last);
-*/
-
     @Insert
-    void insertAll(ScanFile... ScanFiles);
+    void insert(ScanFile scanFile);
 
-    @Insert
-    void insert(ScanFile ScanFiles);
+    @Update
+    void update(ScanFile scanFile);
 
     @Delete
-    void delete(ScanFile ScanFile);
+    void delete(ScanFile scanFile);
+
+    @Query("SELECT * FROM scanfile WHERE text = :searchText LIMIT 1")
+    ScanFile findByText(String searchText);
 
     @Query("DELETE FROM scanfile")
     void nukeTable();

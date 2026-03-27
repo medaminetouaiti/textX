@@ -21,6 +21,7 @@ import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
 import com.google.android.play.core.appupdate.AppUpdateOptions;
 import com.google.android.play.core.install.model.AppUpdateType;
 import com.google.android.play.core.install.model.UpdateAvailability;
+import com.google.firebase.FirebaseApp;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -47,7 +48,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        FirebaseApp.initializeApp(this);
         DynamicColors.applyToActivitiesIfAvailable(this.getApplication());
 
         appUpdateManager = AppUpdateManagerFactory.create(this);

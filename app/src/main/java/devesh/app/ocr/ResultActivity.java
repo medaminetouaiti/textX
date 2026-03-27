@@ -49,7 +49,7 @@ public class ResultActivity extends AppCompatActivity {
 
         Log.d(TAG, "onCreate: intent Text: " + text);
 
-        if (text.equals(null) || text.equals("") || text.equals(" ")) {
+        if (text == null || text.trim().isEmpty()) {
             Add2DB = "no";
             text = "No Text Found in Image !!";
         }
@@ -71,6 +71,12 @@ public class ResultActivity extends AppCompatActivity {
         }
         binding.CopyButton.setOnClickListener(view -> {
             CopyText(text);
+        });
+
+        binding.SummarizeButton.setOnClickListener(view -> {
+            Intent summarizeIntent = new Intent(this, NoteDetailActivity.class);
+            summarizeIntent.putExtra("extra_text", text);
+            startActivity(summarizeIntent);
         });
 
         // Essential For Galaxy App Store Policy

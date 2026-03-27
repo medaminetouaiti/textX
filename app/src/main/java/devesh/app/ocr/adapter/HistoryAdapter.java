@@ -27,81 +27,75 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         mContext = context;
     }
 
-    // Create new views (invoked by the layout manager)
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        // Create a new view, which defines the UI of the list item
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.recycleview_history_item, viewGroup, false);
 
         return new ViewHolder(view);
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
+        ScanFile scan = localDataSet.get(position);
+        
+        viewHolder.getTextView().setText(scan.text);
+        
+        if (scan.summary != null && !scan.summary.isEmpty()) {
+            viewHolder.getTvSummary().setVisibility(View.VISIBLE);
+            viewHolder.getTvSummary().setText("Summary: " + scan.summary);
+        } else {
+            viewHolder.getTvSummary().setVisibility(View.GONE);
+        }
 
-        // Get element from your dataset at this position and replace the
-        // contents of the view with that element
-        viewHolder.getTextView().setText(localDataSet.get(position).text);
+        if (scan.keywords != null && !scan.keywords.isEmpty()) {
+            viewHolder.getTvKeywords().setVisibility(View.VISIBLE);
+            viewHolder.getTvKeywords().setText("Keywords: " + scan.keywords);
+        } else {
+            viewHolder.getTvKeywords().setVisibility(View.GONE);
+        }
+
         viewHolder.getLLItem().setTag(position);
         viewHolder.getLLItem().setOnClickListener(view -> {
-
             ((HistoryActivity) mContext).OpenHistoryFile(Integer.parseInt(view.getTag().toString()));
         });
 
         viewHolder.getCopyButton().setOnClickListener(view -> {
-            Log.d(TAG, "onBindViewHolder: Copy Button");
             ((HistoryActivity) mContext).CopyText(position);
         });
         viewHolder.getShareButton().setOnClickListener(view -> {
-            Log.d(TAG, "onBindViewHolder: Share Button");
             ((HistoryActivity) mContext).ShareText(position);
-
         });
-
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
         return localDataSet.size();
     }
 
-    /**
-     * Provide a reference to the type of views that you are using
-     * (custom ViewHolder).
-     */
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView textView;
+        private final TextView tvSummary;
+        private final TextView tvKeywords;
         private final LinearLayout LLItem;
         private final Button CopyButton;
         private final Button ShareButton;
 
         public ViewHolder(View view) {
             super(view);
-            // Define click listener for the ViewHolder's View
-
-            textView = (TextView) view.findViewById(R.id.textView);
+            textView = view.findViewById(R.id.textView);
+            tvSummary = view.findViewById(R.id.tvSummary);
+            tvKeywords = view.findViewById(R.id.tvKeywords);
             LLItem = view.findViewById(R.id.LLItem);
             CopyButton = view.findViewById(R.id.CopyButton);
             ShareButton = view.findViewById(R.id.ShareButton);
         }
 
-        public TextView getTextView() {
-            return textView;
-        }
-
-        public LinearLayout getLLItem() {
-            return LLItem;
-        }
-
-        public Button getCopyButton() {
-            return CopyButton;
-        }
-
-        public Button getShareButton() {
-            return ShareButton;
-        }
+        public TextView getTextView() { return textView; }
+        public TextView getTvSummary() { return tvSummary; }
+        public TextView getTvKeywords() { return tvKeywords; }
+        public LinearLayout getLLItem() { return LLItem; }
+        public Button getCopyButton() { return CopyButton; }
+        public Button getShareButton() { return ShareButton; }
     }
 }
