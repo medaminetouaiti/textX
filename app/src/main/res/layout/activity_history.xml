@@ -5,15 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-
     tools:context=".HistoryActivity">
 
+    <!-- SECTION HEADER: CLEAR HISTORY BUTTON -->
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="5dp">
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <Space
             android:layout_width="wrap_content"
@@ -30,6 +33,84 @@
             app:icon="@drawable/ic_baseline_auto_delete_24" />
     </LinearLayout>
 
+    <!-- SEARCH VIEW -->
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchViewHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout2"
+        app:searchIcon="@drawable/ic_baseline_search_24"
+        app:closeIcon="@drawable/ic_baseline_close_24" />
+
+    <!-- FILTER CHIPS GROUP -->
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/filterChipGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchViewHistory"
+        app:singleSelection="false">
+
+        <!-- Filter by Keywords -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipKeywords"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Has Keywords"
+            android:textSize="12sp"
+            app:chipIcon="@drawable/ic_baseline_label_24"
+            style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+        <!-- Date Filter Chips -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipToday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Today"
+            android:textSize="12sp"
+            app:chipIcon="@drawable/ic_baseline_calendar_today_24"
+            style="@style/Widget.MaterialComponents.Chip.Action" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipWeek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="This Week"
+            android:textSize="12sp"
+            app:chipIcon="@drawable/ic_baseline_date_range_24"
+            style="@style/Widget.MaterialComponents.Chip.Action" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All Time"
+            android:textSize="12sp"
+            app:chipIcon="@drawable/ic_baseline_schedule_24"
+            style="@style/Widget.MaterialComponents.Chip.Action" />
+    </com.google.android.material.chip.ChipGroup>
+
+    <!-- EMPTY STATE MESSAGE -->
+    <TextView
+        android:id="@+id/emptyStateText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="Aucun résultat trouvé"
+        android:textSize="16sp"
+        android:textColor="?attr/colorOnSurfaceVariant"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/AdFrameLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/filterChipGroup" />
+
+    <!-- RECYCLER VIEW -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/HistoryRecycleView"
         android:layout_width="match_parent"
@@ -37,13 +118,15 @@
         app:layout_constraintBottom_toTopOf="@+id/AdFrameLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintTop_toBottomOf="@id/filterChipGroup" />
 
+    <!-- AD FRAME -->
     <FrameLayout
         android:id="@+id/AdFrameLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

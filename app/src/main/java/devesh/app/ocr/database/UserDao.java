@@ -27,4 +27,24 @@ public interface UserDao {
 
     @Query("DELETE FROM scanfile")
     void nukeTable();
+
+    // ===== NOUVELLES MÉTHODES POUR SEARCH/FILTER =====
+
+    @Query("SELECT * FROM scanfile WHERE LOWER(text) LIKE '%' || :query || '%' ORDER BY time desc")
+    List<ScanFile> searchByText(String query);
+
+    @Query("SELECT * FROM scanfile WHERE LOWER(keywords) LIKE '%' || :query || '%' ORDER BY time desc")
+    List<ScanFile> searchByKeywords(String query);
+
+    @Query("SELECT * FROM scanfile WHERE (LOWER(text) LIKE '%' || :query || '%' OR LOWER(keywords) LIKE '%' || :query || '%') ORDER BY time desc")
+    List<ScanFile> searchByTextAndKeywords(String query);
+
+    @Query("SELECT * FROM scanfile WHERE keywords IS NOT NULL AND keywords != '' ORDER BY time desc")
+    List<ScanFile> getScansWithKeywords();
+
+    @Query("SELECT * FROM scanfile WHERE time >= :startTime ORDER BY time desc")
+    List<ScanFile> getScansAfterDate(long startTime);
+
+    @Query("SELECT * FROM scanfile WHERE time >= :startTime AND time <= :endTime ORDER BY time desc")
+    List<ScanFile> getScansBetweenDates(long startTime, long endTime);
 }

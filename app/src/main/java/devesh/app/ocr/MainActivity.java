@@ -123,6 +123,12 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Check if user is logged in
+        if (!FirebaseAuthManager.isUserLoggedIn()) {
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            finish();
+            return;
+        }
         super.onCreate(savedInstanceState);
         cachePref = new CachePref(this);
         isSubscribed = false;

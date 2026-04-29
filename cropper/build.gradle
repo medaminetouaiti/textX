@@ -20,7 +20,6 @@ android {
 //    buildToolsVersion buildToolsVersion
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 35
         multiDexEnabled true
       //  proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
@@ -46,6 +45,10 @@ android {
     namespace 'com.theartofdev.edmodo.cropper'
     lint {
         abortOnError false
+        targetSdk 35
+    }
+    testOptions {
+        targetSdk 35
     }
 }
 
